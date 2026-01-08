@@ -4719,3 +4719,10 @@ input, select, textarea {
   font-size: 0.9em;
   opacity: 0.8;
 }
+/* Resize featured service image */
+.featured-image img {
+  max-width: 600px;      /* adjust: 400–700px works well */
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+}
