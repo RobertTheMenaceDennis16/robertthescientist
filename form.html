@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Your Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 { text-align:center; }
+    label { display:block; margin-top: 15px; }
+    select, input[type=text], input[type=email], textarea {
+      width: 100%; padding:8px; margin-top:5px; border-radius:4px; border:1px solid #ccc;
+    }
+    .addon { margin-left: 20px; }
+    .total { font-weight:bold; margin-top:15px; font-size:1.2em; }
+    button {
+      margin-top: 20px;
+      width:100%;
+      padding:12px;
+      background:#f5c542;
+      border:none;
+      border-radius:6px;
+      font-size:1.1em;
+      cursor:pointer;
+    }
+    button:hover { background:#e6b733; }
+    .note { font-size: 0.9em; opacity:0.8; }
+  </style>
+</head>
+<body>
+
+<h1>Order Your Student Portfolio Website</h1>
+
+<form action="https://formspree.io/f/mkogdldr" method="POST" id="orderForm">
+
+  <label for="name">Full Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="service">Select Your Service:</label>
+  <select id="service" name="service" required>
+    <option value="student-portfolio" data-price="100">Student Portfolio Website - $100</option>
+  </select>
+
+  <label>Add-ons:</label>
+  <div class="addon">
+    <input type="checkbox" id="consultation" name="addon" value="Consultation" data-price="50">
+    <label for="consultation">Consultation (+$50)</label><br>
+
+    <input type="checkbox" id="extra-page" name="addon" value="Extra Page" data-price="25">
+    <label for="extra-page">Extra Page (+$25)</label><br>
+
+    <input type="checkbox" id="custom-domain" name="addon" value="Custom Domain Attachment" data-price="20">
+    <label for="custom-domain">Attach Custom Domain (+$20) <span class="note">(I can attach your domain, not purchase it)</span></label>
+  </div>
+
+  <label for="details">Website Details:</label>
+  <textarea id="details" name="website-details" rows="5" required></textarea>
+
+  <div class="total">Total: $<span id="totalPrice">100</span></div>
+
+  <button type="submit">Submit Order</button>
+</form>
+
+<script>
+const serviceSelect = document.getElementById('service');
+const addonCheckboxes = document.querySelectorAll('input[name="addon"]');
+const totalPriceEl = document.getElementById('totalPrice');
+
+function calculateTotal() {
+  let total = parseInt(serviceSelect.selectedOptions[0].dataset.price || 0);
+  addonCheckboxes.forEach(box => {
+    if (box.checked) total += parseInt(box.dataset.price);
+  });
+  totalPriceEl.textContent = total;
+}
+
+
+addonCheckboxes.forEach(box => box.addEventListener('change', calculateTotal));
+serviceSelect.addEventListener('change', calculateTotal);
+
+calculateTotal();
+</script>
+
+</body>
+</html>
