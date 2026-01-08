@@ -8,64 +8,121 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
     }
-    h1 { text-align:center; }
-    label { display:block; margin-top: 15px; }
-    select, input[type=text], input[type=email], textarea {
-      width: 100%; padding:8px; margin-top:5px; border-radius:4px; border:1px solid #ccc;
+
+    h1 {
+      text-align:center;
+      margin-bottom: 30px;
     }
-    .addon { margin-left: 20px; }
-    .total { font-weight:bold; margin-top:15px; font-size:1.2em; }
+
+    label {
+      display:block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    select, input[type=text], input[type=email], textarea {
+      width: 100%;
+      padding:8px;
+      margin-top:5px;
+      border-radius:4px;
+      border:1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .addons {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .addon-label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .total {
+      font-weight:bold;
+      margin-top:20px;
+      font-size:1.2em;
+      text-align:right;
+    }
+
     button {
-      margin-top: 20px;
+      margin-top: 25px;
       width:100%;
-      padding:12px;
+      padding:14px;
       background:#f5c542;
       border:none;
       border-radius:6px;
       font-size:1.1em;
       cursor:pointer;
+      transition: background 0.3s ease;
     }
-    button:hover { background:#e6b733; }
-    .note { font-size: 0.9em; opacity:0.8; }
+
+    button:hover {
+      background:#e6b733;
+    }
+
+    .note {
+      font-size: 0.9em;
+      opacity:0.8;
+    }
   </style>
 </head>
 <body>
 
-<h1>Order Your Student Portfolio Website</h1>
+<h1>Order Your Website</h1>
 
 <form action="https://formspree.io/f/mkogdldr" method="POST" id="orderForm">
 
+  <!-- Name -->
   <label for="name">Full Name:</label>
   <input type="text" id="name" name="name" required>
 
+  <!-- Email -->
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required>
 
+  <!-- Service Dropdown -->
   <label for="service">Select Your Service:</label>
   <select id="service" name="service" required>
-    <option value="student-portfolio" data-price="100">Student Portfolio Website - $100</option>
+    <option value="student-portfolio" data-price="100">Student Portfolio Website - $100 (Student Discount)</option>
+    <option value="starter-website" data-price="250">Starter Website - $250</option>
+    <option value="business-website" data-price="500">Business Website - $500</option>
   </select>
 
+  <!-- Add-ons -->
   <label>Add-ons:</label>
-  <div class="addon">
-    <input type="checkbox" id="consultation" name="addon" value="Consultation" data-price="50">
-    <label for="consultation">Consultation (+$50)</label><br>
+  <div class="addons">
+    <label class="addon-label">
+      <input type="checkbox" id="consultation" name="addon" value="Consultation" data-price="50">
+      Consultation (+$50)
+    </label>
 
-    <input type="checkbox" id="extra-page" name="addon" value="Extra Page" data-price="25">
-    <label for="extra-page">Extra Page (+$25)</label><br>
+    <label class="addon-label">
+      <input type="checkbox" id="extra-page" name="addon" value="Extra Page" data-price="25">
+      Extra Page (+$25)
+    </label>
 
-    <input type="checkbox" id="custom-domain" name="addon" value="Custom Domain Attachment" data-price="20">
-    <label for="custom-domain">Attach Custom Domain (+$20) <span class="note">(I can attach your domain, not purchase it)</span></label>
+    <label class="addon-label">
+      <input type="checkbox" id="custom-domain" name="addon" value="Custom Domain Attachment" data-price="20">
+      Attach Custom Domain (+$20) <span class="note">(I can attach your domain, not purchase it)</span>
+    </label>
   </div>
 
+  <!-- Website Details -->
   <label for="details">Website Details:</label>
   <textarea id="details" name="website-details" rows="5" required></textarea>
 
+  <!-- Total -->
   <div class="total">Total: $<span id="totalPrice">100</span></div>
 
+  <!-- Submit Button -->
   <button type="submit">Submit Order</button>
 </form>
 
@@ -82,10 +139,11 @@ function calculateTotal() {
   totalPriceEl.textContent = total;
 }
 
-
-addonCheckboxes.forEach(box => box.addEventListener('change', calculateTotal));
+// Update total when service or add-ons change
 serviceSelect.addEventListener('change', calculateTotal);
+addonCheckboxes.forEach(box => box.addEventListener('change', calculateTotal));
 
+// Initial total
 calculateTotal();
 </script>
 
