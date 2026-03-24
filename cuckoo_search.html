@@ -56,6 +56,24 @@
             margin: 5px 5px 0 0;
             font-size: 12px;
         }
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #0f172a;
+            border: 2px dashed #38bdf8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            color: #94a3b8;
+            font-style: italic;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -75,6 +93,7 @@
                 for fraud detection tasks. The goal is to improve classification metrics such as F1-score and Precision-Recall AUC by tuning hyperparameters
                 using a metaheuristic approach.
             </p>
+            <div class="image-placeholder">Insert dataset visualization or fraud distribution chart here</div>
         </div>
     </section>
 
@@ -85,14 +104,45 @@
                 To compare the performance of a Cuckoo Search–optimized SVM against baseline machine learning models including Random Forest,
                 Gradient Boosting, and a standard SVM, using credit card fraud detection data.
             </p>
+            <ul>
+                <li>Evaluate classification performance using F1-score</li>
+                <li>Measure Precision-Recall Area Under Curve (PR-AUC)</li>
+                <li>Assess model robustness using cross-validation</li>
+            </ul>
+            <div class="image-placeholder">Insert model comparison chart here</div>
         </div>
     </section>
+
     <section>
         <h2>What is Cuckoo Search?</h2>
         <div class="card">
             <p>
-                Cuckoo Search is a nature-inspired metaheuristic optimization algorithm based on the brood parasitism behavior of some cuckoo species. In this algorithm, each solution is represented as a nest, and the goal is to find the best solution by iteratively improving the nests.
+                Cuckoo Search is a nature-inspired metaheuristic optimization algorithm based on the brood parasitism behavior of some cuckoo species.
+                It uses Lévy flights to explore the search space and replace worse solutions with better ones iteratively.
             </p>
+            <ul>
+                <li>Each solution represents a "nest"</li>
+                <li>New solutions are generated via Lévy flight random walks</li>
+                <li>Inferior solutions are replaced probabilistically</li>
+                <li>Best solutions are preserved over iterations</li>
+            </ul>
+            <div class="image-placeholder">Insert cuckoo search flow diagram here</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Support Vector Machine (SVM)</h2>
+        <div class="card">
+            <p>
+                Support Vector Machines are supervised learning models used for classification tasks. They work by finding an optimal hyperplane
+                that separates data points of different classes with maximum margin.
+            </p>
+            <ul>
+                <li>Effective in high-dimensional spaces</li>
+                <li>Uses kernel functions (linear, RBF, polynomial)</li>
+                <li>Sensitive to hyperparameters like C and gamma</li>
+            </ul>
+            <div class="image-placeholder">Insert SVM hyperplane visualization here</div>
         </div>
     </section>
 
@@ -106,6 +156,7 @@
                 <li>Model evaluation using F1-score and PR-AUC</li>
                 <li>Cross-validation to ensure robustness</li>
             </ul>
+            <div class="image-placeholder">Insert pipeline diagram of methodology here</div>
         </div>
     </section>
 
@@ -131,6 +182,20 @@
                 <li>Baseline SVM underperformed without hyperparameter tuning.</li>
                 <li>Cuckoo Search–optimized SVM improved classification metrics significantly.</li>
             </ul>
+            <div class="image-placeholder">Insert results bar chart comparing models here</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Evaluation Metrics</h2>
+        <div class="card">
+            <ul>
+                <li><strong>F1-score:</strong> Harmonic mean of precision and recall</li>
+                <li><strong>PR-AUC:</strong> Area under the precision-recall curve</li>
+                <li><strong>Precision:</strong> Correct positive predictions / total predicted positives</li>
+                <li><strong>Recall:</strong> Correct positive predictions / actual positives</li>
+            </ul>
+            <div class="image-placeholder">Insert precision-recall curve visualization here</div>
         </div>
     </section>
 
@@ -159,7 +224,7 @@
 </div>
 
 <footer>
-    <p>© 2026 Robert Dennis | Data Analytics Portfolio</p>
+    <p>© 2026 Robert Dennis | Data Science Portfolio</p>
 </footer>
 
 </body>
