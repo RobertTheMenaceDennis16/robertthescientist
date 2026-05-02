@@ -63,6 +63,24 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             margin-top: 15px;
         }
+                /* Add this to your <style> block */
+        .results-chart {
+            margin-top: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+
+        .results-chart img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Improve table readability */
+        table th, table td {
+            padding: 12px 15px;
+        }
 
         .math-block {
             background: #0f172a;
@@ -214,10 +232,11 @@
                     <td>0.92</td>
                 </tr>
             </table>
-            <div><img src="images/fig01_f1.png" 
-                loading="lazy" 
-                style="margin-top:20px; width: 100%; height: auto;" 
-                alt="PR-Curve Comparison Chart">
+            <div class="results-chart">
+                <img src="images/fig01_f1.png" 
+                    loading="lazy" 
+                    style="margin-top:20px; width: 100%; height: auto;" 
+                    alt="PR-Curve Comparison Chart">
             </div>
             
         </div>
