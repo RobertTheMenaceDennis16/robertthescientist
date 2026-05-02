@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuckoo Search for SVM Hyperparameter Optimization | Research</title>
+    <title>Cuckoo Search for Hyperparameter Optimization | Research</title>
     
     <meta name="description" content="Research exploring Cuckoo Search (CS) and Levy Flights to optimize SVM hyperparameters for high-imbalance fraud detection datasets.">
     <meta name="keywords" content="Cuckoo Search, Metaheuristics, SVM Optimization, Levy Flight, Fraud Detection, Robert Dennis, Data Analytics">
@@ -107,8 +107,10 @@
 
 <header>
     <a href="index.html" class="back-button">← Portfolio</a>
-    <h1>Metaheuristic Optimization in Fraud Detection</h1>
-    <p style="color: var(--text-dim); font-size: 1.1rem;">Optimizing SVM Hyperparameters via Cuckoo Search Algorithm</p>
+    <h1>Cuckoo Search in Fraud Detection</h1>
+    <p style="color: var(--text-dim); font-size: 1.1rem;">Optimizing Hyperparameters via Cuckoo Search Algorithm
+        The intersection of Nature-Inspired Computing and Financial Security.
+    </p>
     <div style="margin-top: 20px;">
         <span class="tag">Machine Learning</span>
         <span class="tag">Metaheuristics</span>
@@ -124,7 +126,10 @@
         <div class="card">
             <p>
                 Hyperparameter selection for machine learning models traditionally relies on Grid Search, 
-                which is computationally expensive and prone to local optima. This research proposes a <strong>Cuckoo Search (CS)</strong> approach using <strong>Levy Flights</strong> to optimize the regularization parameter \(C\) and kernel coefficient \(\gamma\). Preliminary results demonstrate a significant lift in PR-AUC for highly imbalanced credit card fraud datasets.
+                which is computationally expensive and prone to local optima. This research proposes a <strong>Cuckoo
+                     Search (CS)</strong> approach using <strong>Levy Flights</strong> to optimize the regularization
+                      parameter \(C\) and kernel coefficient \(\gamma\). Preliminary results demonstrate a significan
+                      t lift in PR-AUC and F1 - scorefor highly imbalanced credit card fraud datasets.
             </p>
         </div>
     </section>
@@ -135,7 +140,7 @@
                 <h2>The Objective</h2>
                 <div class="card">
                     <p>The objective of this research is to optimize the hyperparameters of Gradient boosting, 
-                        Random Forest and SVM for credit card fraud detection using a metaheuristic approach.
+                        Random Forest and Support Vector Machines (SVM) for credit card fraud detection using a metaheuristic approach.
                         The Cuckoo Search (CS) algorithm, inspired by the brood parasitism of cuckoo birds, 
                         is employed to efficiently explore the hyperparameter space. The use of Levy Flights allows 
                         the algorithm to escape local optima, making it particularly effective for high-dimensional and
@@ -150,11 +155,18 @@
             <div>
                 <h2>Levy Flight Distribution</h2>
                 <div class="card">
-                    <p>Exploration is driven by the Levy distribution, providing a random walk with heavy tails:</p>
+                    <p>Levy Flights are a type of random walk where the step lengths have a
+                         probability distribution that is heavy-tailed. In the context of Cuckoo Search, 
+                         this allows for both local and global search capabilities. The step size \(s\) is drawn from a
+                          Levy distribution, which can be mathematically expressed as:</p>
+                       
                     <div class="math-block">
                         $$L(s, \lambda) \sim s^{-\lambda}$$
                     </div>
-                    <p>This ensures the algorithm escapes local optima that stymie traditional gradient-based methods.</p>
+                    <p>This ensures the algorithm escapes local optima that stymie traditional gradient-based 
+                        methods. The Levy Flight mechanism is particularly beneficial in high-dimensional hyperparameter spaces, 
+                        where the search landscape can be rugged and filled with local minima, such as the SVM.
+                    </p>
                 </div>
             </div>
         </div>
@@ -202,7 +214,7 @@
                     <td>0.92</td>
                 </tr>
             </table>
-            <div class="image-placeholder" ><img src="images/model_comparison.png" 
+            <div class="image-placeholder" ><img src="images/fig01_f1.png" 
                 loading="lazy" 
                 style="margin-top:20px; width: 100%; height: auto;" 
                 alt="PR-Curve Comparison Chart">
@@ -210,9 +222,15 @@
             
         </div>
     </section>
+    <br/>
+    <br/>
+    
 
     <section>
         <h2>Key Technologies</h2>
+        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">The following tools and 
+            libraries were instrumental in this research:
+        </p>
         <div style="text-align: center;">
             <span class="tag">Python 3.10</span>
             <span class="tag">Scikit-Learn</span>
@@ -220,6 +238,43 @@
             <span class="tag">Pandas</span>
             <span class="tag">Matplotlib/Seaborn</span>
             <span class="tag">Latex</span>
+        </div>
+    </section>
+    <section>
+        <h2>Future Research</h2>
+        <div class="card">
+            <p>Future research will explore the application of Cuckoo Search to other machine learning models, 
+                such as Neural Networks and XGBoost, as well as its performance on larger and more complex datasets. 
+                Additionally, the integration of adaptive discovery rates and hybrid metaheuristic approaches will be investigated to further enhance optimization efficiency.
+            </p>
+        </div>
+    </section>
+    <section>
+        <h2>Page Glossary</h2>
+        <div class="card">
+            <ul>
+                <li><strong>Cuckoo Search (CS):</strong> A metaheuristic optimization algorithm inspired by the brood parasitism of cuckoo birds.</li>
+                <li><strong>Levy Flights:</strong> A random walk where the step lengths have a probability distribution that is heavy-tailed, allowing for both local and global search capabilities.</li>
+                <li><strong>PR-AUC:</strong> Area Under the Precision-Recall Curve, a performance metric for imbalanced classification problems.</li>
+                <li><strong>F1-Score:</strong> The harmonic mean of precision and recall, used to evaluate the performance of classification models.</li>
+                <li><strong>SMOTE:</strong> Synthetic Minority Over-sampling Technique, a method for addressing class imbalance in datasets.</li>
+                <li><strong>Hyperparameters:</strong> Parameters that are set before the learning process begins and control the behavior of the learning algorithm.</li>
+                <li><strong>Grid Search:</strong> A traditional method for hyperparameter optimization that exhaustively searches through a specified subset of the hyperparameter space.</li>
+                <li><strong>Metaheuristics:</strong> High-level procedures designed to find good solutions to optimization problems by exploring the search space efficiently.</li>
+                <li><strong>Stratified Cross-Validation:</strong> A method of cross-validation that ensures each fold of the dataset has the same proportion of classes as the original dataset.</li>
+                <li><strong>Discovery Rate (P_a):</strong> In Cuckoo Search, the probability that a host bird discovers an alien egg, leading to the abandonment of the nest.</li>
+                <li><strong>Local Optima:</strong> Solutions that are better than their neighboring solutions but not the best overall solution.</li>
+                <li><strong>Global Optimum:</strong> The best possible solution in the entire search space.</li>
+                <li><strong>Imbalanced Dataset:</strong> A dataset where the classes are not represented equally, often leading to challenges in model training and evaluation.</li>
+                <li><strong>Regularization Parameter (C):</strong> A hyperparameter in SVM that controls the trade-off between achieving a low error on the training data and minimizing the model complexity.</li>
+                <li><strong>Kernel Coefficient (γ):</strong> A hyperparameter in SVM that defines the influence of a single training example, with low values meaning 'far' and high values meaning 'close'.</li>
+
+            </ul>
+            <p>For a deeper dive into the methodology, results, and codebase, please visit the GitHub repository linked below:</p>
+            
+            <a href="https://github.com/robertthescientist/cuckoo-search" target="_blank" rel="noopener noreferrer">
+                GitHub Repository
+            </a>
         </div>
     </section>
 
